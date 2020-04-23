@@ -1,0 +1,11 @@
+*.iml
+/local.properties
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+/.idea/
+.gradle/
+/priguardMapping.txt
+/bugly
