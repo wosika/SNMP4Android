@@ -4,13 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.wosika.smnp.SnmpUtils
-import com.wosika.smnp.SnmpUtils.Companion.SNMP_VERSION_2c
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
-
-    var count = 0
 
     val text: StringBuilder = StringBuilder()
 
@@ -22,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             text.clear()
             setMessage("")
             thread {
-                SnmpUtils().apply {
+                SnmpUtils.apply {
                     //设置版本 可选参数默认为2c
                     snmpVersion = SNMP_VERSION_2c
                     //设置超时时间 可选参数 默认为1000
@@ -35,19 +32,16 @@ class MainActivity : AppCompatActivity() {
                     responseListener = { responseState ->
                         if (responseState.isSuccess) {
                             setMessage("成功~回调数据：${responseState.value}")
-                            count++
-                            Log.d(javaClass.simpleName, "次数+$count")
                         } else {
                             setMessage("失败~回调数据：${responseState.exception?.message}")
-                            count++
-                            Log.d(javaClass.simpleName, "次数+$count")
                         }
                     }
                 }
                     //调用发送
                     .sendSNMP(".1.3.6.1.2.1.25.3.5.1.1", "169.254.198.16")
-
-            }.start()
+            }
+                //切记不要再使用start kotlin中语法糖thread{}会自动start
+               // .start()
         }
     }
 
