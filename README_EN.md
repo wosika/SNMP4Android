@@ -61,6 +61,6 @@ dependency：<br/>
   2.Add the dependency
   
     dependencies {
-	          implementation 'com.github.wosika:SNMP4Android:1.0.1'
+	          implementation 'com.github.wosika:SNMP4Android:1.0.2'
     }
     
