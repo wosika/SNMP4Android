@@ -1,8 +1,6 @@
-package com.shuanghouyun.sdk.protocol
+package com.wosika.smnp
 
 import android.util.Log
-import com.wosika.smnp.ResponseState
-import com.wosika.smnp.SnmpException
 import org.snmp4j.CommunityTarget
 import org.snmp4j.PDU
 import org.snmp4j.Snmp
