@@ -47,7 +47,7 @@
   
     dependencies {
 	          implementation 'com.github.wosika:SNMP4Android:1.0.1'
-	  }
+    }
 	  
  需要指定JDK 1.8，在app build:gradle 中的android 下添加 指定jdk版本的代码,如下:
  
@@ -56,7 +56,7 @@
   	  //指定jdk版本
   	  compileOptions {
   	      sourceCompatibility JavaVersion.VERSION_1_8
-   	     targetCompatibility JavaVersion.VERSION_1_8
+   	      targetCompatibility JavaVersion.VERSION_1_8
   	  }
 	}	
     
