@@ -2,7 +2,7 @@ package com.wosika.smnp.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.shuanghouyun.sdk.protocol.SnmpUtils
+import com.wosika.smnp.SnmpUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
