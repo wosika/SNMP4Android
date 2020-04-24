@@ -7,4 +7,7 @@ data class ResponseState(
     val exception: SnmpException? = null
 )
 
-class SnmpException(errorMsg: String) : Exception(errorMsg)
+class SnmpException : Exception {
+    constructor(message: String?) : super(message)
+    constructor(message: String?, cause: Throwable?) : super(message, cause)
+}
