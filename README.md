@@ -7,6 +7,8 @@
 SNMP介绍可以看这，便于理解：<br/>
 https://www.jianshu.com/p/18e2a26183a0
 
+# English Document: [README](./README_EN.md)
+
 使用方法:<br/>
 
 	 //在子线程中调用
