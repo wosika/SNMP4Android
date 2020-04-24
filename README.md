@@ -10,30 +10,32 @@ https://www.jianshu.com/p/18e2a26183a0
 使用方法:<br/>
 
 	 //在子线程中调用
- 	 thread {
-                SnmpUtils.apply {
+ 	  thread {
+                //调用发送
+                SnmpUtils.sendSNMP(
+                    oidCmd = ".1.3.6.1.2.1.25.3.5.1.1"
+                    , ipAddress = "169.254.198.16"
                     //设置版本 可选参数默认为2c
-                    snmpVersion = SNMP_VERSION_2c
-                    //设置超时时间 可选参数 默认为1000
-                    timeoutMillisecond = 1000
+                    , snmpVersion = SnmpUtils.SNMP_VERSION_2c
+                    //设置超时时间 可选参数 默认为1000毫秒
+                    , timeoutMillisecond = 1000
                     //设置重试次数 可选参数 默认为2次
-                    retryCount = 2
+                    , retryCount = 2
                     //设置团体名  可选参数 默认public
-                    community = "public"
-                    //设置监听器
+                    , community = "public"
+                    ,   //设置监听器 可选参数
                     responseListener = { responseState ->
+                        //先判定是否成功，成功再去使用value
                         if (responseState.isSuccess) {
                             setMessage("成功~回调数据：${responseState.value}")
                         } else {
                             setMessage("失败~回调数据：${responseState.exception?.message}")
                         }
                     }
-                }
-                    //调用发送
-                    .sendSNMP(".1.3.6.1.2.1.25.3.5.1.1", "169.254.198.16")
+                )
             }
-                //切记不要再使用start kotlin中语法糖thread{}会自动start
-               // .start()
+            //切记不要再使用start kotlin中语法糖thread{}会自动start
+            // .start()
 	  
  需要指定JDK 1.8，在app build:gradle 中的android 下添加 指定jdk版本的代码,如下:
  
@@ -63,6 +65,6 @@ https://www.jianshu.com/p/18e2a26183a0
   2.Add the dependency
   
     dependencies {
-	          implementation 'com.github.wosika:SNMP4Android:1.0.1'
+	          implementation 'com.github.wosika:SNMP4Android:1.0.2'
     }
     
