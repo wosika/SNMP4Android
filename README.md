@@ -9,6 +9,7 @@ https://www.jianshu.com/p/18e2a26183a0
 
 使用方法:<br/>
 
+	 //在子线程中调用
  	 thread {
                 SnmpUtils.apply {
                     //设置版本 可选参数默认为2c
@@ -33,7 +34,22 @@ https://www.jianshu.com/p/18e2a26183a0
             }
                 //切记不要再使用start kotlin中语法糖thread{}会自动start
                // .start()
+	  
+ 需要指定JDK 1.8，在app build:gradle 中的android 下添加 指定jdk版本的代码,如下:
+ 
+	android {
+  	  ......
+  	  //指定jdk版本
+  	  compileOptions {
+  	      sourceCompatibility JavaVersion.VERSION_1_8
+   	      targetCompatibility JavaVersion.VERSION_1_8
+  	  }
+	}	
+	
+增加权限：
 
+	<uses-permission android:name="android.permission.INTERNET"/>
+	
 依赖添加：<br/>
   1.Add it in your root build.gradle at the end of repositories:
 
@@ -49,15 +65,4 @@ https://www.jianshu.com/p/18e2a26183a0
     dependencies {
 	          implementation 'com.github.wosika:SNMP4Android:1.0.1'
     }
-	  
- 需要指定JDK 1.8，在app build:gradle 中的android 下添加 指定jdk版本的代码,如下:
- 
-	android {
-  	  ......
-  	  //指定jdk版本
-  	  compileOptions {
-  	      sourceCompatibility JavaVersion.VERSION_1_8
-   	      targetCompatibility JavaVersion.VERSION_1_8
-  	  }
-	}	
     
