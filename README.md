@@ -1,6 +1,6 @@
 # SNMP4Android
 
-[![](https://jitpack.io/v/wosika/SNMP4Android.svg)](https://jitpack.io/#wosika/SNMP4Android)
+[![](https://jitpack.io/v/wosika/SNMP4Android.svg)](https://jitpack.io/#wosika/SNMP4Android) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu) 
 
 找了很久都没有找到适合用在android的snmp客户端所以自己开源一份希望能帮助到你。<br/>
 
