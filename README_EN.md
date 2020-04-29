@@ -1,6 +1,6 @@
 # SNMP4Android
 
-[![](https://jitpack.io/v/wosika/SNMP4Android.svg)](https://jitpack.io/#wosika/SNMP4Android)
+[![](https://jitpack.io/v/wosika/SNMP4Android.svg)](https://jitpack.io/#wosika/SNMP4Android) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu) 
 
 I have been looking for a long time, but I have not found a suitable SNMP client for android, so I hope to help you <br/>
 
