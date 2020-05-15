@@ -10,26 +10,26 @@ Use:<br/>
 	 //Called in a new thread
  	 thread {
  	            SnmpUtils.sendSNMP(
-                                    oidCmd = ".1.3.6.1.2.1.25.3.5.1.1"
-                                    , ipAddress = "169.254.198.16"
-                                    // Optional parameters: snmp version default "2c"
-                                    , snmpVersion = SnmpUtils.SNMP_VERSION_2c
-                                    //Optional parameters: timeout default "1000ms"
-                                    , timeoutMillisecond = 1000
-                                    //Optional parameters: retry count  default "2 time"
-                                    , retryCount = 2
-                                     //Optional parameters: snmp community  default "public"
-                                    , community = "public"
-                                    , //Optional parameters: listener ,it can be null
-                                    responseListener = { responseState ->
-                                        //Determine the success first, and then use value after success
-                                        if (responseState.isSuccess) {
-                                            setMessage("成功~回调数据：${responseState.value}")
-                                        } else {
-                                            setMessage("失败~回调数据：${responseState.exception?.message}")
-                                        }
-                                    }
-                                )
+                                oidCmd = ".1.3.6.1.2.1.25.3.5.1.1"
+                              , ipAddress = "169.254.198.16"
+                              // Optional parameters: snmp version default "2c"
+                              , snmpVersion = SnmpUtils.SNMP_VERSION_2c
+                              //Optional parameters: timeout default "1000ms"
+                              , timeoutMillisecond = 1000
+                              //Optional parameters: retry count  default "2 time"
+                              , retryCount = 2
+                               //Optional parameters: snmp community  default "public"
+                              , community = "public"
+                              , //Optional parameters: listener ,it can be null
+                              responseListener = { responseState ->
+                                  //Determine the success first, and then use value after success
+                                  if (responseState.isSuccess) {
+                                      setMessage("success：${responseState.value}")
+                                  } else {
+                                      setMessage("fail：${responseState.exception?.message}")
+                                  }
+                              }
+                          )
             }
                 //Don't call the function thread{}.start() , kotlin syntax automatically start
                // .start()
