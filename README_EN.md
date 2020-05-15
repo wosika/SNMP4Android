@@ -9,24 +9,27 @@ Use:<br/>
 
 	 //Called in a new thread
  	 thread {
-                SnmpUtils.apply {
-                    // Optional parameters: snmp version default "2c"
-                    snmpVersion = SNMP_VERSION_2c
-                    //Optional parameters: timeout default "1000ms"
-                    timeoutMillisecond = 1000
-                    //Optional parameters: retry count  default "2 time"
-                    retryCount = 2
-                    //Optional parameters: snmp community  default "public"
-                    community = "public"
-                    //Optional parameters: listener ,it can be null
-                    responseListener = { responseState ->
-                        if (responseState.isSuccess) {
-                            setMessage("SUCCESS：${responseState.value}")
-                        } else {
-                            setMessage("FAIL：${responseState.exception?.message}")
-                        }
+               SnmpUtils.sendSNMP(
+                oidCmd = ".1.3.6.1.2.1.25.3.5.1.1"
+                , ipAddress = "169.254.198.16"
+                //设置版本 可选参数默认为2c
+                , snmpVersion = SnmpUtils.SNMP_VERSION_2c
+                //设置超时时间 可选参数 默认为1000毫秒
+                , timeoutMillisecond = 1000
+                //设置重试次数 可选参数 默认为2次
+                , retryCount = 2
+                //设置团体名  可选参数 默认public
+                , community = "public"
+                ,   //设置监听器 可选参数
+                responseListener = { responseState ->
+                    //先判定是否成功，成功再去使用value
+                    if (responseState.isSuccess) {
+                        setMessage("成功~回调数据：${responseState.value}")
+                    } else {
+                        setMessage("失败~回调数据：${responseState.exception?.message}")
                     }
                 }
+            )
                     //call to send
                     .sendSNMP(".1.3.6.1.2.1.25.3.5.1.1", "169.254.198.16")
             }
