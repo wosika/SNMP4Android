@@ -4,9 +4,6 @@
 
 找了很久都没有找到适合用在android的snmp客户端所以自己开源一份希望能帮助到你。<br/>
 
-SNMP介绍可以看这，便于理解：<br/>
-https://www.jianshu.com/p/18e2a26183a0
-
 # English Document: [README](./README_EN.md)
 
 使用方法:<br/>
